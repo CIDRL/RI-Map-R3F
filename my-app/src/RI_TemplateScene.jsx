@@ -5,16 +5,281 @@ Files: RI_TemplateScene.gltf [2.9MB] > /Users/hgs52/Downloads/RI/RI/RI_TemplateS
 */
 
 import React from 'react'
-import { useGLTF } from '@react-three/drei'
+import { useGraph } from '@react-three/fiber'
+import { useGLTF, PerspectiveCamera } from '@react-three/drei'
 import { SkeletonUtils } from 'three-stdlib'
 
 export function Model(props) {
   const { scene } = useGLTF('/RI_TemplateScene-transformed.glb')
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
-  
+  const { nodes, materials } = useGraph(clone)
   return (
     <group {...props} dispose={null}>
-      <primitive object={clone} />
+      <PerspectiveCamera makeDefault={false} far={1000.134} near={0.3} fov={60} position={[522, 236, -577]} rotation={[-2.336, 0.356, 2.753]} />
+      <directionalLight intensity={3.142} decay={2} color="#fff4d6" position={[0, 3, 0]} rotation={[-2.199, -0.327, -2.725]} target={nodes.Directional_Light.target}>
+        <primitive object={nodes.Directional_Light.target} position={[0, 0, -1]} />
+      </directionalLight>
+      <group position={[-144.472, 19.139, 481.984]} scale={1.444}>
+        <mesh geometry={nodes['baum_ld1_mobile_(10)_1'].geometry} material={materials['ast4 lw']} />
+        <mesh geometry={nodes['baum_ld1_mobile_(10)_2'].geometry} material={materials.Bark} />
+      </group>
+      <mesh geometry={nodes['baum_ld2_mobile_(4)'].geometry} material={materials['ast5 lw']} position={[-856.334, 17.014, 1292.63]} scale={2.058} />
+      <mesh geometry={nodes['baum_ld0_mobile_(5)'].geometry} material={materials['ast3 lw']} position={[-809.535, 17.2, 1244.02]} scale={2.058} />
+      <group position={[-292.325, 18.11, 809]} rotation={[-Math.PI, 0.213, -Math.PI]} scale={82.32}>
+        <mesh geometry={nodes.Mesh1_2.geometry} material={materials.F_rgen_10} />
+        <mesh geometry={nodes.Mesh1_3.geometry} material={materials.F_rgen_1} />
+        <mesh geometry={nodes.Mesh1_4.geometry} material={materials.MF_20R_1} />
+        <mesh geometry={nodes.Mesh1_5.geometry} material={materials.MF_20R_1_4} />
+        <mesh geometry={nodes.Mesh1_6.geometry} material={materials.F_rgen_5} />
+        <mesh geometry={nodes.Mesh1_7.geometry} material={materials.F_rgen_7} />
+        <mesh geometry={nodes.Mesh1_8.geometry} material={materials.F_rgen_2} />
+        <mesh geometry={nodes.Mesh1_9.geometry} material={materials.F_rgen_1_1} />
+        <mesh geometry={nodes.Mesh1_10.geometry} material={materials.F_rgen_9} />
+        <mesh geometry={nodes.Mesh1_11.geometry} material={materials.F_rgen_6} />
+        <mesh geometry={nodes.Mesh1_12.geometry} material={materials.MF_20R_1_1} />
+        <mesh geometry={nodes.Mesh1_13.geometry} material={materials.MF_20R_1_2} />
+        <mesh geometry={nodes.Mesh1_14.geometry} material={materials.F_rgen_3} />
+        <mesh geometry={nodes.Mesh1_15.geometry} material={materials.MF_20R_1_2_1} />
+        <mesh geometry={nodes.Mesh1_16.geometry} material={materials.MF_20R_1_3} />
+        <mesh geometry={nodes.Mesh1_17.geometry} material={materials.F_rged_k_3} />
+        <mesh geometry={nodes.Mesh1_18.geometry} material={materials.F_rgen_51} />
+        <mesh geometry={nodes.Mesh1_19.geometry} material={materials.F_rgen_53} />
+        <mesh geometry={nodes.Mesh1_20.geometry} material={materials.F_rgen_1_4} />
+        <mesh geometry={nodes.Mesh1_21.geometry} material={materials.MF_20R_1_4_5} />
+        <mesh geometry={nodes.Mesh1_22.geometry} material={materials.MF_20R_1_3_1} />
+        <mesh geometry={nodes.Mesh1_23.geometry} material={materials.MF_20R_1_5} />
+        <mesh geometry={nodes.Mesh1_24.geometry} material={materials.PaletteMaterial001} />
+        <mesh geometry={nodes.Mesh1_25.geometry} material={materials.F_rgen_1_2} />
+        <mesh geometry={nodes.Mesh1_26.geometry} material={materials.F_rgen_1_3} />
+      </group>
+      <mesh geometry={nodes['Mercedes-Benz_E63_(1)'].geometry} material={materials.PaletteMaterial002} position={[-595.009, 18.28, 1099.61]} rotation={[0.001, -0.594, 0.001]} scale={0.031} />
+      <mesh geometry={nodes['Stop_(1)'].geometry} material={materials.M_Stop} position={[14.865, 21.309, 65.638]} rotation={[Math.PI / 2, 0, -2.182]} scale={0.072} />
+      <mesh geometry={nodes.Object_1.geometry} material={materials.Railing} position={[-34.163, -276.163, 353.153]} scale={100.073} />
+      <mesh geometry={nodes.Mesh18_3.geometry} material={materials.End1} position={[-34.163, -276.163, 353.153]} scale={100.073} />
+      <mesh geometry={nodes.Mesh18_2.geometry} material={materials.End2} position={[-34.163, -276.163, 353.153]} scale={100.073} />
+      <mesh geometry={nodes.Mesh18.geometry} material={materials._Brick_Antique_01_1} position={[-34.163, -276.163, 353.153]} scale={100.073} />
+      <mesh geometry={nodes.Object_2.geometry} material={materials.T_Store1} position={[-34.163, -275.937, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Object_1_1.geometry} material={materials.T_Store2} position={[-34.163, -275.937, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Object_1_2.geometry} material={materials.Cinder_Block} position={[-34.163, -275.834, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Object_32.geometry} material={materials.StoreFront} position={[-34.163, -275.834, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh183_2.geometry} material={materials._17} position={[-34.163, -275.834, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh22.geometry} material={materials.T_Library2} position={[-34.163, -275.834, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh22_2.geometry} material={materials.T_Library1} position={[-34.163, -275.834, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh22_7.geometry} material={materials._Polished_Concrete_New_1} position={[-34.163, -275.834, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh22_8.geometry} material={materials.M_531c} position={[-34.163, -275.834, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh9_5.geometry} material={materials.T_B1} position={[-34.163, -277.835, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh19_5.geometry} material={materials.T_B2} position={[-34.163, -275.834, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh17_4.geometry} material={materials.T_B4} position={[-34.163, -277.035, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh17_7.geometry} material={materials.T_B3} position={[-34.163, -277.035, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh2.geometry} material={materials.Fencing_Construction} position={[-34.163, -275.834, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh186_41.geometry} material={materials.Roofing_Shingles_Asphalt} position={[-34.163, -275.834, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh613.geometry} material={materials._Vegetation_Grass_1} position={[-34.163, -275.834, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh17_6.geometry} material={materials._Brick_Antique_01_1} position={[-34.163, -277.035, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Object_34.geometry} material={materials.Blinds_Roman_Hobbled_Blue} position={[-34.163, -277.035, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Object_1_3.geometry} material={materials.Wood_bench} position={[-34.163, -276.163, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Object_2_1.geometry} material={materials['Custom (2)']} position={[-34.163, -276.163, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh603.geometry} material={materials.M_510A} position={[-34.163, -276.163, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh603_2.geometry} material={materials.M_510C} position={[-34.163, -276.163, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh603_3.geometry} material={materials.M_510D} position={[-34.163, -276.163, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh604_6.geometry} material={materials.M_510B} position={[-34.163, -276.163, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Object_1_4.geometry} material={materials['Custom (1)']} position={[-34.163, -275.937, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Object_22.geometry} material={materials.Polished_Concrete_Old} position={[-34.163, -275.937, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh375_3.geometry} material={materials.bricks_zigzag_texture_6190218_1_1} position={[-34.163, -275.937, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh179.geometry} material={materials.Queensboro_Bridge_Tria} position={[-42.189, 1.646, -37.25]} scale={100.073} />
+      <mesh geometry={nodes.Mesh178.geometry} material={materials.Queensboro_Bridge_link} position={[-42.189, 1.646, -37.25]} scale={100.073} />
+      <group position={[-42.189, 1.646, -37.25]} scale={100.073}>
+        <mesh geometry={nodes.Mesh177_1.geometry} material={materials.Queensboro_Bridge_Top_railing} />
+        <mesh geometry={nodes.Mesh177_2.geometry} material={materials.Queensboro_Bridge_Top_railing1} />
+      </group>
+      <group position={[-42.189, 1.646, -37.25]} scale={100.073}>
+        <mesh geometry={nodes.Mesh173_1.geometry} material={materials.Queensboro_Bridge_Tower_Top} />
+        <mesh geometry={nodes.Mesh173_2.geometry} material={materials.Queensboro_Bridge_Road} />
+      </group>
+      <mesh geometry={nodes.Mesh62.geometry} material={materials.Queensboro_Bridge_Corner_Lever} position={[-42.189, 1.646, -37.25]} scale={100.073} />
+      <mesh geometry={nodes.Mesh1_1.geometry} material={materials.Queensboro_Bridge_Side_Lever} position={[-42.189, 1.646, -37.25]} scale={100.073} />
+      <mesh geometry={nodes.Mesh3.geometry} material={materials.Queensboro_Bridge_Center_Lever} position={[-42.189, 1.646, -37.25]} scale={100.073} />
+      <mesh geometry={nodes.Mesh7.geometry} material={materials.Diagnol} position={[-42.189, 1.646, -37.25]} scale={100.073} />
+      <group position={[-42.189, 1.646, -37.25]} scale={100.073}>
+        <mesh geometry={nodes.Mesh11_1.geometry} material={materials.Queensboro_Bridge_Side_Lever1} />
+        <mesh geometry={nodes.Mesh11_2.geometry} material={materials.Queensboro_Bridge_Side_Lever2} />
+      </group>
+      <mesh geometry={nodes.Mesh12.geometry} material={materials.Queensboro_Bridge_Side_Lever3} position={[-42.189, 1.646, -37.25]} scale={100.073} />
+      <mesh geometry={nodes.Mesh14.geometry} material={materials.Queensboro_Bridge_Top} position={[-42.189, 1.646, -37.25]} scale={100.073} />
+      <mesh geometry={nodes.Mesh13.geometry} material={materials.Queensboro_Bridge_Pole} position={[-42.189, 1.646, -37.25]} scale={100.073} />
+      <mesh geometry={nodes.Mesh16.geometry} material={materials.Queensboro_Bridge_Arch} position={[-42.189, 1.646, -37.25]} scale={100.073} />
+      <group position={[-42.189, 1.646, -37.25]} scale={100.073}>
+        <mesh geometry={nodes.Mesh42_1.geometry} material={materials.Queensboro_Bridge_Pillar6} />
+        <mesh geometry={nodes.Mesh42_2.geometry} material={materials.Queensboro_Bridge_Pillar10} />
+        <mesh geometry={nodes.Mesh42_3.geometry} material={materials.Queensboro_Bridge_Pillar} />
+        <mesh geometry={nodes.Mesh42_4.geometry} material={materials.Queensboro_Bridge_Pillar1} />
+        <mesh geometry={nodes.Mesh42_5.geometry} material={materials.Queensboro_Bridge_Pillar2} />
+        <mesh geometry={nodes.Mesh42_6.geometry} material={materials.Queensboro_Bridge_Pillar3} />
+        <mesh geometry={nodes.Mesh42_7.geometry} material={materials.Queensboro_Bridge_Pillar4} />
+        <mesh geometry={nodes.Mesh42_8.geometry} material={materials.Queensboro_Bridge_Pillar5} />
+        <mesh geometry={nodes.Mesh42_9.geometry} material={materials.Queensboro_Bridge_Pillar7} />
+        <mesh geometry={nodes.Mesh42_10.geometry} material={materials.Queensboro_Bridge_Pillar8} />
+        <mesh geometry={nodes.Mesh42_11.geometry} material={materials.Queensboro_Bridge_Pillar9} />
+        <mesh geometry={nodes.Mesh42_12.geometry} material={materials.Queensboro_Bridge_Pillar11} />
+        <mesh geometry={nodes.Mesh42_13.geometry} material={materials.Queensboro_Bridge_Pillar12} />
+        <mesh geometry={nodes.Mesh42_14.geometry} material={materials.Queensboro_Bridge_Pillar13} />
+        <mesh geometry={nodes.Mesh42_15.geometry} material={materials.Queensboro_Bridge_Pillar14} />
+        <mesh geometry={nodes.Mesh42_16.geometry} material={materials.Queensboro_Bridge_Pillar15} />
+        <mesh geometry={nodes.Mesh42_17.geometry} material={materials.Queensboro_Bridge_Pillar16} />
+      </group>
+      <group position={[-42.189, 1.646, -37.25]} scale={100.073}>
+        <mesh geometry={nodes.Mesh58_1.geometry} material={materials.Queensboro_Bridge_Pillar17} />
+        <mesh geometry={nodes.Mesh58_2.geometry} material={materials.Queensboro_Bridge_Pillar18} />
+      </group>
+      <mesh geometry={nodes.Mesh59.geometry} material={materials.Queensboro_Bridge_Side_Lever4} position={[-42.189, 1.646, -37.25]} scale={100.073} />
+      <group position={[-42.189, 1.646, -37.25]} scale={100.073}>
+        <mesh geometry={nodes.Mesh203_1.geometry} material={materials.Queensboro_Bridge_Railing} />
+        <mesh geometry={nodes.Mesh203_2.geometry} material={materials.Queensboro_Bridge_Pillar19} />
+        <mesh geometry={nodes.Mesh203_3.geometry} material={materials.Queensboro_Bridge_Pillar20} />
+        <mesh geometry={nodes.Mesh203_4.geometry} material={materials.Queensboro_Bridge_Pillar21} />
+        <mesh geometry={nodes.Mesh203_5.geometry} material={materials.Queensboro_Bridge_Pillar22} />
+        <mesh geometry={nodes.Mesh203_6.geometry} material={materials.Queensboro_Bridge_Pillar23} />
+        <mesh geometry={nodes.Mesh203_7.geometry} material={materials.Queensboro_Bridge_Pillar24} />
+        <mesh geometry={nodes.Mesh203_8.geometry} material={materials.Queensboro_Bridge_Pillar25} />
+        <mesh geometry={nodes.Mesh203_9.geometry} material={materials.Queensboro_Bridge_Pillar26} />
+        <mesh geometry={nodes.Mesh203_10.geometry} material={materials.Queensboro_Bridge_Pillar27} />
+        <mesh geometry={nodes.Mesh203_11.geometry} material={materials.Queensboro_Bridge_Pillar28} />
+        <mesh geometry={nodes.Mesh203_12.geometry} material={materials.Queensboro_Bridge_Pillar29} />
+        <mesh geometry={nodes.Mesh203_13.geometry} material={materials.Queensboro_Bridge_Pillar30} />
+        <mesh geometry={nodes.Mesh203_14.geometry} material={materials.Queensboro_Bridge_Pillar31} />
+        <mesh geometry={nodes.Mesh203_15.geometry} material={materials.Queensboro_Bridge_Pillar32} />
+        <mesh geometry={nodes.Mesh203_16.geometry} material={materials.Queensboro_Bridge_Pillar33} />
+        <mesh geometry={nodes.Mesh203_17.geometry} material={materials.Queensboro_Bridge_Pillar34} />
+        <mesh geometry={nodes.Mesh203_18.geometry} material={materials.Queensboro_Bridge_Pillar35} />
+        <mesh geometry={nodes.Mesh203_19.geometry} material={materials.Queensboro_Bridge_Pillar36} />
+        <mesh geometry={nodes.Mesh203_20.geometry} material={materials.Queensboro_Bridge_Pillar37} />
+        <mesh geometry={nodes.Mesh203_21.geometry} material={materials.Queensboro_Bridge_Pillar39} />
+        <mesh geometry={nodes.Mesh203_22.geometry} material={materials.Queensboro_Bridge_Pillar40} />
+        <mesh geometry={nodes.Mesh203_23.geometry} material={materials.Queensboro_Bridge_Pillar41} />
+        <mesh geometry={nodes.Mesh203_24.geometry} material={materials.Queensboro_Bridge_Pillar42} />
+        <mesh geometry={nodes.Mesh203_25.geometry} material={materials.Queensboro_Bridge_Pillar43} />
+        <mesh geometry={nodes.Mesh203_26.geometry} material={materials.Queensboro_Bridge_Pillar44} />
+        <mesh geometry={nodes.Mesh203_27.geometry} material={materials.Queensboro_Bridge_Pillar45} />
+        <mesh geometry={nodes.Mesh203_28.geometry} material={materials.Queensboro_Bridge_Pillar46} />
+        <mesh geometry={nodes.Mesh203_29.geometry} material={materials.Queensboro_Bridge_Pillar47} />
+        <mesh geometry={nodes.Mesh203_30.geometry} material={materials.Queensboro_Bridge_Pillar48} />
+        <mesh geometry={nodes.Mesh203_31.geometry} material={materials.Queensboro_Bridge_Pillar49} />
+        <mesh geometry={nodes.Mesh203_32.geometry} material={materials.Queensboro_Bridge_Pillar50} />
+        <mesh geometry={nodes.Mesh203_33.geometry} material={materials.Queensboro_Bridge_Pillar51} />
+        <mesh geometry={nodes.Mesh203_34.geometry} material={materials.Queensboro_Bridge_Pillar52} />
+        <mesh geometry={nodes.Mesh203_35.geometry} material={materials.Queensboro_Bridge_Pillar53} />
+        <mesh geometry={nodes.Mesh203_36.geometry} material={materials.Queensboro_Bridge_Pillar54} />
+        <mesh geometry={nodes.Mesh203_37.geometry} material={materials.Queensboro_Bridge_Pillar55} />
+        <mesh geometry={nodes.Mesh203_38.geometry} material={materials.Queensboro_Bridge_Pillar56} />
+        <mesh geometry={nodes.Mesh203_39.geometry} material={materials.Queensboro_Bridge_Pillar57} />
+        <mesh geometry={nodes.Mesh203_40.geometry} material={materials.Queensboro_Bridge_Pillar58} />
+        <mesh geometry={nodes.Mesh203_41.geometry} material={materials.Queensboro_Bridge_Pillar60} />
+        <mesh geometry={nodes.Mesh203_42.geometry} material={materials.Queensboro_Bridge_Pillar61} />
+        <mesh geometry={nodes.Mesh203_43.geometry} material={materials.Queensboro_Bridge_Pillar62} />
+        <mesh geometry={nodes.Mesh203_44.geometry} material={materials.Queensboro_Bridge_Pillar63} />
+        <mesh geometry={nodes.Mesh203_45.geometry} material={materials.Queensboro_Bridge_Pillar64} />
+        <mesh geometry={nodes.Mesh203_46.geometry} material={materials.Queensboro_Bridge_Pillar65} />
+        <mesh geometry={nodes.Mesh203_47.geometry} material={materials.Queensboro_Bridge_Pillar66} />
+        <mesh geometry={nodes.Mesh203_48.geometry} material={materials.Queensboro_Bridge_Pillar67} />
+        <mesh geometry={nodes.Mesh203_49.geometry} material={materials.Queensboro_Bridge_Pillar68} />
+        <mesh geometry={nodes.Mesh203_50.geometry} material={materials.Queensboro_Bridge_Pillar69} />
+        <mesh geometry={nodes.Mesh203_51.geometry} material={materials.Queensboro_Bridge_Pillar70} />
+        <mesh geometry={nodes.Mesh203_52.geometry} material={materials.Queensboro_Bridge_Pillar71} />
+        <mesh geometry={nodes.Mesh203_53.geometry} material={materials.Queensboro_Bridge_Pillar72} />
+        <mesh geometry={nodes.Mesh203_54.geometry} material={materials.Queensboro_Bridge_Pillar73} />
+        <mesh geometry={nodes.Mesh203_55.geometry} material={materials.Queensboro_Bridge_Pillar74} />
+        <mesh geometry={nodes.Mesh203_56.geometry} material={materials.Queensboro_Bridge_Pillar75} />
+        <mesh geometry={nodes.Mesh203_57.geometry} material={materials.Queensboro_Bridge_Pillar76} />
+        <mesh geometry={nodes.Mesh203_58.geometry} material={materials.Queensboro_Bridge_Pillar77} />
+        <mesh geometry={nodes.Mesh203_59.geometry} material={materials.Queensboro_Bridge_Pillar78} />
+        <mesh geometry={nodes.Mesh203_60.geometry} material={materials.Queensboro_Bridge_Pillar79} />
+        <mesh geometry={nodes.Mesh203_61.geometry} material={materials.Queensboro_Bridge_Pillar80} />
+        <mesh geometry={nodes.Mesh203_62.geometry} material={materials.Queensboro_Bridge_Pillar81} />
+        <mesh geometry={nodes.Mesh203_63.geometry} material={materials.Queensboro_Bridge_Pillar82} />
+        <mesh geometry={nodes.Mesh203_64.geometry} material={materials.Queensboro_Bridge_Pillar38} />
+      </group>
+      <mesh geometry={nodes.Mesh60.geometry} material={materials.Queensboro_Bridge_Middle_Lever} position={[-42.189, 1.646, -37.25]} scale={100.073} />
+      <group position={[-42.189, 1.646, -37.25]} scale={100.073}>
+        <mesh geometry={nodes.Mesh224_1.geometry} material={materials.car_side} />
+        <mesh geometry={nodes.Mesh224_2.geometry} material={materials.car_side1} />
+        <mesh geometry={nodes.Mesh224_3.geometry} material={materials.Kugel_Silver_Uffizi1} />
+        <mesh geometry={nodes.Mesh224_4.geometry} material={materials.car_north} />
+        <mesh geometry={nodes.Mesh224_5.geometry} material={materials.car_north_2} />
+        <mesh geometry={nodes.Mesh224_6.geometry} material={materials.car_north_3} />
+        <mesh geometry={nodes.Mesh224_7.geometry} material={materials.red_carpaint_png2f94dec3_1426_4fda_b73b_36dcd8d82b71Larger} />
+        <mesh geometry={nodes.Mesh224_8.geometry} material={materials.car_north_3_1} />
+        <mesh geometry={nodes.Mesh224_9.geometry} material={materials.car_north_2_1} />
+        <mesh geometry={nodes.Mesh224_10.geometry} material={materials.car_north1} />
+      </group>
+      <group position={[-42.189, 1.646, -37.25]} scale={100.073}>
+        <mesh geometry={nodes.Mesh222_1.geometry} material={materials.car_swing} />
+        <mesh geometry={nodes.Mesh222_2.geometry} material={materials.Metallic_Silver} />
+        <mesh geometry={nodes.Mesh222_3.geometry} material={materials.car_swing2} />
+      </group>
+      <group position={[-42.189, 1.646, -37.25]} scale={100.073}>
+        <mesh geometry={nodes.Mesh223_1.geometry} material={materials.rail} />
+        <mesh geometry={nodes.Mesh223_2.geometry} material={materials.car_cable_clamp} />
+        <mesh geometry={nodes.Mesh223_3.geometry} material={materials.car_cable_clamp1} />
+      </group>
+      <group position={[-42.189, 1.646, -37.25]} scale={100.073}>
+        <mesh geometry={nodes.Mesh204_1.geometry} material={materials.tower_center_base} />
+        <mesh geometry={nodes.Mesh204_2.geometry} material={materials.RI_lattice_tower_NS___upper_shell} />
+        <mesh geometry={nodes.Mesh204_3.geometry} material={materials.RI_lattice_tower_NS___upper_shell1} />
+        <mesh geometry={nodes.Mesh204_4.geometry} material={materials.RI_lattice_tower_east___upper_shell} />
+        <mesh geometry={nodes.Mesh204_5.geometry} material={materials.tower_center_base1} />
+        <mesh geometry={nodes.Mesh204_6.geometry} material={materials.ri_tower_center_ew} />
+        <mesh geometry={nodes.Mesh204_7.geometry} material={materials.RI_lattice_tower_NS___upper_shell2} />
+        <mesh geometry={nodes.Mesh204_8.geometry} material={materials.RI_lattice_tower_NS___upper_shell3} />
+        <mesh geometry={nodes.Mesh204_9.geometry} material={materials.RI_lattice_tower_NS___upper_shell4} />
+        <mesh geometry={nodes.Mesh204_10.geometry} material={materials.ri_tower_center_ew1} />
+        <mesh geometry={nodes.Mesh204_11.geometry} material={materials.RI_lattice_tower_NS___upper_shell5} />
+        <mesh geometry={nodes.Mesh204_12.geometry} material={materials.RI_lattice_tower_east___upper_shell1} />
+      </group>
+      <mesh geometry={nodes.Mesh205.geometry} material={materials.cable} position={[-42.189, 1.646, -37.25]} scale={100.073} />
+      <group position={[-42.189, 1.646, -37.25]} scale={100.073}>
+        <mesh geometry={nodes.Mesh209_1.geometry} material={materials.M_3231936245_84b46d05a7} />
+        <mesh geometry={nodes.Mesh209_2.geometry} material={materials.ri_tower_crown} />
+        <mesh geometry={nodes.Mesh209_3.geometry} material={materials.ri_tower_crown2} />
+        <mesh geometry={nodes.Mesh209_4.geometry} material={materials.ri_tower_crown2_1} />
+        <mesh geometry={nodes.Mesh209_5.geometry} material={materials.ri_tower_crown2_2} />
+        <mesh geometry={nodes.Mesh209_6.geometry} material={materials.ri_tower_crown2_3} />
+        <mesh geometry={nodes.Mesh209_7.geometry} material={materials.ri_tower_crown2_4} />
+      </group>
+      <mesh geometry={nodes.Mesh207.geometry} material={materials.rail_brace} position={[-42.189, 1.646, -37.25]} scale={100.073} />
+      <group position={[-42.189, 1.646, -37.25]} scale={100.073}>
+        <mesh geometry={nodes.Mesh210_1.geometry} material={materials.Kugel_Silver_Uffizi} />
+        <mesh geometry={nodes.Mesh210_2.geometry} material={materials.tower_rail} />
+      </group>
+      <mesh geometry={nodes.Mesh214.geometry} material={materials.tower_roller} position={[-42.189, 1.646, -37.25]} scale={100.073} />
+      <mesh geometry={nodes.Mesh218.geometry} material={materials.roller_rail1} position={[-42.189, 1.646, -37.25]} scale={100.073} />
+      <mesh geometry={nodes.Mesh216.geometry} material={materials.roller_rail} position={[-42.189, 1.646, -37.25]} scale={100.073} />
+      <group position={[-42.189, 1.646, -37.25]} scale={100.073}>
+        <mesh geometry={nodes.Mesh294_1.geometry} material={materials.RI_lattice_tower_NS___upper_shell6} />
+        <mesh geometry={nodes.Mesh294_2.geometry} material={materials.RI_lattice_tower_east___upper_shell2} />
+        <mesh geometry={nodes.Mesh294_3.geometry} material={materials.RI_lattice_tower_east___upper_shell3} />
+        <mesh geometry={nodes.Mesh294_4.geometry} material={materials.RI_lattice_tower_NS___upper_shell7} />
+        <mesh geometry={nodes.Mesh294_5.geometry} material={materials.RI_lattice_tower_NS___lower_shell} />
+        <mesh geometry={nodes.Mesh294_6.geometry} material={materials.RI_lattice_tower_east___lower_shell} />
+        <mesh geometry={nodes.Mesh294_7.geometry} material={materials.RI_lattice_tower_NS___lower_shell1} />
+        <mesh geometry={nodes.Mesh294_8.geometry} material={materials.RI_lattice_tower_east___lower_shell1} />
+        <mesh geometry={nodes.Mesh294_9.geometry} material={materials.RI_lattice_tower_NS___upper_shell8} />
+        <mesh geometry={nodes.Mesh294_10.geometry} material={materials.RI_lattice_tower_east___upper_shell4} />
+        <mesh geometry={nodes.Mesh294_11.geometry} material={materials.RI_lattice_tower_NS___upper_shell9} />
+        <mesh geometry={nodes.Mesh294_12.geometry} material={materials.RI_lattice_tower_east___lower_shell2} />
+        <mesh geometry={nodes.Mesh294_13.geometry} material={materials.RI_lattice_tower_NS___lower_shell2} />
+        <mesh geometry={nodes.Mesh294_14.geometry} material={materials.RI_lattice_tower_east___lower_shell3} />
+        <mesh geometry={nodes.Mesh294_15.geometry} material={materials.RI_lattice_tower_NS___lower_shell3} />
+      </group>
+      <mesh geometry={nodes.Object_10.geometry} material={materials.Custom} position={[-41.633, -275.813, 353.667]} scale={100.073} />
+      <mesh geometry={nodes.Object_1_5.geometry} material={materials.Plastic} position={[-41.633, -275.813, 353.667]} scale={100.073} />
+      <mesh geometry={nodes.Object_11.geometry} material={materials.PaletteMaterial003} position={[-41.633, -275.813, 353.667]} scale={100.073} />
+      <mesh geometry={nodes.Object_7.geometry} material={materials.Blinds_Roman_Hobbled_Blue} position={[-41.633, -275.813, 353.667]} scale={100.073} />
+      <mesh geometry={nodes.Mesh4.geometry} material={materials.Polished_Concrete_Old} position={[-34.163, -277.748, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh25_3.geometry} material={materials.FDNY} position={[-34.163, -277.748, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh4_4.geometry} material={materials.Fire2} position={[-34.163, -277.748, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh4_3.geometry} material={materials.Fire3} position={[-34.163, -277.748, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh4_2.geometry} material={materials.Fire4} position={[-34.163, -277.748, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh25_2.geometry} material={materials.FireWall} position={[-34.163, -277.748, 352.947]} scale={100.073} />
+      <mesh geometry={nodes.Mesh25.geometry} material={materials.M_531c} position={[-34.163, -277.748, 352.947]} scale={100.073} />
     </group>
   )
 }
