@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { ScrollControls, Sky, useScroll, PerspectiveCamera } from '@react-three/drei'
+import { ScrollControls, Sky, useScroll, PerspectiveCamera, CameraControls } from '@react-three/drei'
 import { Color } from 'three'
 import { Model } from './RI_TemplateSceneNew.jsx'
 import { Water } from './components/Water'
@@ -17,6 +17,7 @@ export default function App() {
           <ScrollControls pages={3} damping={0.1}>
             <Island />
           </ScrollControls>
+          {/* <CameraControls/> */}
         </Suspense>
       </Canvas>
     </div>

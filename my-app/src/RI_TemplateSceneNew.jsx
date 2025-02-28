@@ -4,32 +4,35 @@ Command: npx gltfjsx@6.5.3 RI_TemplateScene.gltf --transform
 Files: RI_TemplateScene.gltf [4.18MB] > /Users/hgs52/Downloads/RI/Island/RI_TemplateScene-transformed.glb [7.63MB] (-82%)
 */
 
-import React from 'react'
+import React, { forwardRef, useEffect } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { SkeletonUtils } from 'three-stdlib'
 
-export function Model({ hiddenMeshes = [], ...props }) {
-  const { scene } = useGLTF('/RI_TemplateScene.glb')
-  const clone = React.useMemo(() => {
-    const clonedScene = SkeletonUtils.clone(scene)
-    
-    // Hide specified meshes
-    if (hiddenMeshes.length > 0) {
-      clonedScene.traverse((node) => {
-        if (node.isMesh && hiddenMeshes.includes(node.name)) {
-          node.visible = false
-        }
-      })
+export const Model = forwardRef(({ onPointerOver, onPointerOut, onClick, ...props }, ref) => {
+  const { scene } = useGLTF('/RI_TemplateScene-transformed.glb')
+  const clonedScene = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
+
+  // Forward the ref to the group and make it accessible
+  useEffect(() => {
+    if (ref) {
+      if (typeof ref === 'function') {
+        ref(clonedScene)
+      } else {
+        ref.current = clonedScene
+      }
     }
-    
-    return clonedScene
-  }, [scene, hiddenMeshes])
+  }, [ref, clonedScene])
 
   return (
-    <group {...props} dispose={null}>
-      <primitive object={clone} />
+    <group {...props}>
+      <primitive 
+        object={clonedScene}
+        onPointerOver={onPointerOver}
+        onPointerOut={onPointerOut}
+        onClick={onClick}
+      />
     </group>
   )
-}
+})
 
 useGLTF.preload('/RI_TemplateScene-transformed.glb')
