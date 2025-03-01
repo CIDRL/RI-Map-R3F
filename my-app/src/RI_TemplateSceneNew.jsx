@@ -9,7 +9,7 @@ import { useGLTF } from '@react-three/drei'
 import { SkeletonUtils } from 'three-stdlib'
 
 export const Model = forwardRef(({ onPointerOver, onPointerOut, onClick, ...props }, ref) => {
-  const { scene } = useGLTF('/RI_TemplateScene-transformed.glb')
+  const { scene } = useGLTF('/RI-Map-R3F/RI_TemplateScene-transformed.glb')
   const clonedScene = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
 
   // Forward the ref to the group and make it accessible
@@ -35,4 +35,4 @@ export const Model = forwardRef(({ onPointerOver, onPointerOut, onClick, ...prop
   )
 })
 
-useGLTF.preload('/RI_TemplateScene-transformed.glb')
+useGLTF.preload('/RI-Map-R3F/RI_TemplateScene-transformed.glb')
